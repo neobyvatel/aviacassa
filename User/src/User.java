@@ -12,7 +12,7 @@ public class User {
     }
 
     public User(Integer id, String username, String name, String surname, Integer balance) {
-        this.id = id_n++;
+        this();
         this.name = name;
         this.username = username;
         this.surname = surname;
@@ -32,7 +32,7 @@ public class User {
         return username;
     }
 
-    public void getUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -54,5 +54,9 @@ public class User {
 
     public int getBalance() {
         return balance;
+    }
+    
+    public void setBalance() {
+        this.balance = balance:
     }
 }
