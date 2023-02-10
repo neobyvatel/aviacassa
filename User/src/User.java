@@ -57,6 +57,6 @@ public class User {
     }
     
     public void setBalance() {
-        this.balance = balance:
+        this.balance = balance;
     }
 }
