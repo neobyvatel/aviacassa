@@ -6,7 +6,7 @@ import entities.User;
 import java.util.List;
 
 public interface IFlightRepository {
-    boolean createFlight(User user);
+    boolean createFlight(Flights flight);
     Flights getFlight(int id);
     List<Flights> getAllFlights();
 }

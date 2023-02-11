@@ -21,6 +21,11 @@ public class Flights {
         public void setOrigin(String origin) {
                 this.origin = origin;
         }
+
+        public String getOrigin() {
+                return origin;
+        }
+
         public void setFlightType(boolean flightType) {
                 FlightType = flightType;
         }
@@ -29,8 +34,24 @@ public class Flights {
                 this.price = price;
         }
 
+        public int getPrice() {
+                return price;
+        }
+
         public void setDestination(String destination) {
                 this.destination = destination;
+        }
+
+        public String getDestination() {
+                return destination;
+        }
+
+        public int getSeats() {
+                return seats;
+        }
+
+        public void setSeats(int seats) {
+                this.seats = seats;
         }
 
         public static boolean checkSeat(int seats) {
