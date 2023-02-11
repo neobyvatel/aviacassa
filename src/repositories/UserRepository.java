@@ -20,7 +20,7 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO users(name,surname,balance) VALUES (?,?,?)";
+            String sql = "INSERT INTO users(first,surname,balance) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, user.getName());
