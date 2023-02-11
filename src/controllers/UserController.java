@@ -12,7 +12,7 @@ public class UserController {
         this.repo = repo;
     }
 
-    public String createUser(String username, String name, String surname, int balance) {
+    public String createUser(String name, String surname, Integer balance) {
         User user = new User(name, surname, balance);
 
         boolean created = repo.createUser(user);
