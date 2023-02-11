@@ -1,25 +1,27 @@
 package entities;
+import java.util.ArrayList;
 
 public class User {
     private int id;
     private String name;
     private String surname;
-    private boolean gender;
+    private int balance;
+    ArrayList<String> flights = new ArrayList<String>();
 
     public User() {
 
     }
 
-    public User(String name, String surname, boolean gender) {
+    public User(String name, String surname) {
         setName(name);
         setSurname(surname);
-        setGender(gender);
+
     }
 
-    public User(int id, String name, String surname, boolean gender) {
-        this(name, surname, gender);
+    public User(int id, String name, String surname, int balance) {
+        this(name, surname);
         setId(id);
-
+        setBalance(balance);
     }
 
     public int getId() {
@@ -46,12 +48,12 @@ public class User {
         this.surname = surname;
     }
 
-    public boolean getGender() {
-        return gender;
+    public int getBalance() {
+        return balance;
     }
 
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     @Override
@@ -60,7 +62,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", gender=" + (gender ? "Male" : "Female") +
+                ", balance='" + balance +
                 '}';
     }
 }
