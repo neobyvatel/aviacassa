@@ -25,7 +25,7 @@ public class UserRepository implements IUserRepository {
 
             st.setString(1, user.getName());
             st.setString(2, user.getSurname());
-            st.setInteger(3, user.getBalance());
+            st.setInt(3, user.getBalance());
 
             st.execute();
             return true;
@@ -58,7 +58,7 @@ public class UserRepository implements IUserRepository {
                 User user = new User(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
-                        rs.getInteger("balance"));
+                        rs.getInt("balance"));
 
                 return user;
             }
@@ -81,19 +81,31 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,surname,balance FROM users";
+            String sql = "SELECT * FROM users";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
+
             List<User> users = new LinkedList<>();
+
+//            System.out.println(rs);
+
+
             while (rs.next()) {
-                User user = new User(rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("surname"),
-                        rs.getInteger("balance"));
+                User user = new User(rs.getInt("user_id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+0
+
+//                     ,   rs.getInt("balance")
+
+                );
 
                 users.add(user);
             }
+
+//            System.out.println(users);
+
 
             return users;
         } catch (SQLException throwables) {

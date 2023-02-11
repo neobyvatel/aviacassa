@@ -67,7 +67,7 @@ public class MyApplication {
         System.out.println("Please enter surname");
         String surname = scanner.next();
         System.out.println("Please enter balance");
-        Integer balance = scanner.next();
+        int balance = scanner.nextInt();
 
         String response = controller.createUser(name, surname, balance);
         System.out.println(response);
