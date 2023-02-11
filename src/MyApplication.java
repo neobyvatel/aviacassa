@@ -66,10 +66,10 @@ public class MyApplication {
         String name = scanner.next();
         System.out.println("Please enter surname");
         String surname = scanner.next();
-        System.out.println("Please enter gender (male/female)");
-        String gender = scanner.next();
+        System.out.println("Please enter balance");
+        Integer balance = scanner.next();
 
-        String response = controller.createUser(name, surname, gender);
+        String response = controller.createUser(name, surname, balance);
         System.out.println(response);
     }
 }
