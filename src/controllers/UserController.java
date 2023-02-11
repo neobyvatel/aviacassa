@@ -12,9 +12,8 @@ public class UserController {
         this.repo = repo;
     }
 
-    public String createUser(String name, String surname, String gender) {
-        boolean male = (gender.equalsIgnoreCase("male"));
-        User user = new User(name, surname, male);
+    public String createUser(String name, String surname, Integer balance) {
+        User user = new User(name, surname, balance);
 
         boolean created = repo.createUser(user);
 

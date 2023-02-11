@@ -12,16 +12,16 @@ public class User {
 
     }
 
-    public User(String name, String surname) {
+    public User(String name, String surname, Integer balance) {
         setName(name);
         setSurname(surname);
+        setBalance(balance);
 
     }
 
     public User(int id, String name, String surname, int balance) {
-        this(name, surname);
+        this(name, surname,balance);
         setId(id);
-        setBalance(balance);
     }
 
     public int getId() {
