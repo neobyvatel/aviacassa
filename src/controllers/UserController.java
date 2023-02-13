@@ -12,8 +12,8 @@ public class UserController {
         this.repo = repo;
     }
 
-    public String createUser(String name, String surname, Integer balance) {
-        User user = new User(name, surname, balance);
+    public String createUser(String name, String surname, String email, int balance) {
+        User user = new User(name, surname,email, balance);
 
         boolean created = repo.createUser(user);
 

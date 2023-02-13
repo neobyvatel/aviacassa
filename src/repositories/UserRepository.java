@@ -49,16 +49,17 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,surname,balance FROM users WHERE id=?";
+            String sql = "SELECT id,name,surname,email,balance FROM users WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                User user = new User(rs.getInt("id"),
+                User user = new User(rs.getInt("user_id"),
                         rs.getString("name"),
                         rs.getString("surname"),
+                        rs.getString("email"),
                         rs.getInt("balance"));
 
                 return user;
@@ -93,6 +94,7 @@ public class UserRepository implements IUserRepository {
                 User user = new User(rs.getInt("user_id"),
                         rs.getString("firstname"),
                         rs.getString("lastname"),
+                        rs.getString("email"),
                         rs.getInt("balance")
                 );
 

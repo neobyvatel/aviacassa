@@ -1,6 +1,6 @@
 package controllers;
 
-import entities.Flights;
+import entities.Flight;
 import repositories.interfaces.IFlightRepository;
 import repositories.interfaces.IUserRepository;
 

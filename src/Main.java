@@ -5,7 +5,6 @@ import data.interfaces.IDB;
 import repositories.UserRepository;
 import repositories.interfaces.IUserRepository;
 
-import java.sql.*;
 
 public class Main {
 
