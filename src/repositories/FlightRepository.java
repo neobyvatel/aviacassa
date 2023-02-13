@@ -1,7 +1,7 @@
 package repositories;
 
 import data.interfaces.IDB;
-import entities.Flights;
+import entities.Flight;
 import repositories.interfaces.IFlightRepository;
 
 import java.sql.*;
@@ -16,7 +16,7 @@ public class FlightRepository implements IFlightRepository{
     }
 
     @Override
-    public boolean createFlight(Flights flight) {
+    public boolean createFlight(Flight flight) {
         Connection con = null;
         try {
             con = db.getConnection();
@@ -45,12 +45,12 @@ public class FlightRepository implements IFlightRepository{
     }
 
     @Override
-    public Flights getFlight(int id) {
+    public Flight getFlight(int id) {
         return null;
     }
 
     @Override
-    public List<Flights> getAllFlights() {
+    public List<Flight> getAllFlights() {
         return null;
     }
 }

@@ -1,12 +1,12 @@
 package repositories.interfaces;
 
-import entities.Flights;
+import entities.Flight;
 import entities.User;
 
 import java.util.List;
 
 public interface IFlightRepository {
-    boolean createFlight(Flights flight);
-    Flights getFlight(int id);
-    List<Flights> getAllFlights();
+    boolean createFlight(Flight flight);
+    Flight getFlight(int id);
+    List<Flight> getAllFlights();
 }

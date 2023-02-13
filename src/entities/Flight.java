@@ -1,6 +1,6 @@
 package entities;
 
-public class Flights {
+public class Flight {
         private int id;
 
 
