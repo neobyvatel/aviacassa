@@ -5,22 +5,23 @@ public class User {
     private int id;
     private String name;
     private String surname;
+    private String email;
     private int balance;
     ArrayList<String> flights = new ArrayList<String>();
 
     public User() {
-
     }
 
-    public User(String name, String surname, Integer balance) {
+    public User(String name, String surname, String email, Integer balance) {
         setName(name);
         setSurname(surname);
+        setEmail(email);
         setBalance(balance);
 
     }
 
-    public User(int id, String name, String surname, int balance) {
-        this(name, surname,balance);
+    public User(int id, String name, String surname, String email, int balance) {
+        this(name, surname,email, balance);
         setId(id);
     }
 
@@ -56,13 +57,31 @@ public class User {
         this.balance = balance;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public ArrayList<String> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(ArrayList<String> flights) {
+        this.flights = flights;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", balance='" + balance +
+                ", email='" + email + '\'' +
+                ", balance=" + balance +
+                ", flights=" + flights +
                 '}';
     }
 }

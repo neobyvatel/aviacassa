@@ -20,11 +20,12 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO users(first,surname,balance) VALUES (?,?,?)";
+            String sql = "INSERT INTO users(firstname,lastname,email,balance) VALUES (?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, user.getName());
             st.setString(2, user.getSurname());
+            st.setString(2, user.getEmail());
             st.setInt(3, user.getBalance());
 
             st.execute();
@@ -88,25 +89,15 @@ public class UserRepository implements IUserRepository {
 
             List<User> users = new LinkedList<>();
 
-//            System.out.println(rs);
-
-
             while (rs.next()) {
                 User user = new User(rs.getInt("user_id"),
                         rs.getString("firstname"),
                         rs.getString("lastname"),
-0
-
-//                     ,   rs.getInt("balance")
-
+                        rs.getInt("balance")
                 );
 
                 users.add(user);
             }
-
-//            System.out.println(users);
-
-
             return users;
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -1,20 +1,33 @@
 package entities;
 
+
 public class Flight {
         private int id;
-
 
         private String origin;
 
         private String destination;
 
-        private boolean FlightType;
-
         private int price;
 
         private int seats;
 
-        public void setId() {
+        public Flight(){}
+
+        public Flight(String origin, String destination, int price, int seats){
+                setOrigin(origin);
+                setDestination(destination);
+                setPrice(price);
+                setSeats(seats);
+        }
+
+        public Flight(int id, String origin, String destination, int price, int seats){
+                this(origin, destination, price, seats);
+                setId(id);
+        }
+
+
+        public void setId(int id) {
                 this.id = id;
         }
 
@@ -26,9 +39,6 @@ public class Flight {
                 return origin;
         }
 
-        public void setFlightType(boolean flightType) {
-                FlightType = flightType;
-        }
 
         public void setPrice(int price) {
                 this.price = price;
