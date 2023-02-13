@@ -69,7 +69,7 @@ public class MyApplication {
         System.out.println("Please enter email");
         String email = scanner.next();
         System.out.println("Please enter balance");
-        int balance = scanner.nextInt();
+        int balance = Integer.parseInt(scanner.next());
 
         String response = controller.createUser(name, surname,email, balance);
         System.out.println(response);

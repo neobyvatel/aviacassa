@@ -25,8 +25,8 @@ public class UserRepository implements IUserRepository {
 
             st.setString(1, user.getName());
             st.setString(2, user.getSurname());
-            st.setString(2, user.getEmail());
-            st.setInt(3, user.getBalance());
+            st.setString(3, user.getEmail());
+            st.setInt(4, user.getBalance());
 
             st.execute();
             return true;
