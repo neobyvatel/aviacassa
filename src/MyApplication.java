@@ -13,25 +13,34 @@ public class MyApplication {
         scanner = new Scanner(System.in);
     }
 
+    public static void clearConsole() {
+        System.out.println("\\033[H\\033[2J");
+        System.out.flush();
+    }
+
     public void start() {
-        while (true) {
+        boolean isActive = false;
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
-            System.out.println("1. Get all users");
-            System.out.println("2. Get user by id");
-            System.out.println("3. Create user");
+            System.out.println("1. Sign in");
+            System.out.println("2. Sign up");
+//            System.out.println("1. Get all users");
+//            System.out.println("2. Get user by id");
+//            System.out.println("3. Create user");
             System.out.println("0. Exit");
             System.out.println();
+        while (isActive == false) {
             try {
-                System.out.print("Enter option (1-3): ");
+                System.out.print("Enter option (1-2): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
-                    getAllUsersMenu();
+                    loginMenu();
+                    isActive = true;
                 } else if (option == 2) {
-                    getUserByIdMenu();
+                    registerMenu();
                 } else if (option == 3) {
-                    createUserMenu();
+
                 } else {
                     break;
                 }
@@ -44,6 +53,10 @@ public class MyApplication {
             }
 
             System.out.println("*************************");
+
+        }
+
+        while (isActive){
 
         }
     }
@@ -61,7 +74,7 @@ public class MyApplication {
         System.out.println(response);
     }
 
-    public void createUserMenu() {
+    public void registerMenu() {
         System.out.println("Please enter name");
         String name = scanner.next();
         System.out.println("Please enter surname");
@@ -69,9 +82,17 @@ public class MyApplication {
         System.out.println("Please enter email");
         String email = scanner.next();
         System.out.println("Please enter balance");
-        int balance = Integer.parseInt(scanner.next());
+        int balance = scanner.nextInt();
 
-        String response = controller.createUser(name, surname,email, balance);
+        String response = controller.register(name, surname,email, balance);
+        System.out.println(response);
+    }
+
+    public void loginMenu(){
+        System.out.println("Please enter email");
+        String email = scanner.next();
+
+        String response = controller.login(email);
         System.out.println(response);
     }
 }

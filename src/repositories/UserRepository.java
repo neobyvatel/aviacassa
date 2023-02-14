@@ -16,7 +16,7 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public boolean createUser(User user) {
+    public boolean register(User user) {
         Connection con = null;
         try {
             con = db.getConnection();
@@ -44,6 +44,40 @@ public class UserRepository implements IUserRepository {
         return false;
     }
 
+    @Override
+    public User login(String email){
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, email);
+
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                User user = new User(rs.getInt("user_id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("email"),
+                        rs.getInt("balance"));
+
+                return user;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
+
+    }
     @Override
     public User getUser(int id) {
         Connection con = null;
