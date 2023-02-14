@@ -20,10 +20,10 @@ public class UserController {
         return (created ? "You have successfully registered!" : "Registration was failed!");
     }
 
-    public String login(String email){
+    public User login(String email){
         User user = repo.login(email);
-
-        return (user == null ? "User was not found!" : "Welcome to AviaCassa, " + user.getEmail());
+        return user;
+        //return (user == null ? "User was not found!" : "Welcome to AviaCassa, " + user.getEmail());
     }
 
     public String getUser(int id) {

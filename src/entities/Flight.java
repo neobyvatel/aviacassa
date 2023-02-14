@@ -64,6 +64,17 @@ public class Flight {
                 this.seats = seats;
         }
 
+        @Override
+        public String toString() {
+                return "Flight{" +
+                        "id=" + id +
+                        ", origin='" + origin + '\'' +
+                        ", destination='" + destination + '\'' +
+                        ", price=" + price +
+                        ", seats=" + seats +
+                        '}';
+        }
+
         public static boolean checkSeat(int seats) {
                 return (seats>0);
         }

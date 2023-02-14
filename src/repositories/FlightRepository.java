@@ -81,6 +81,38 @@ public class FlightRepository implements IFlightRepository{
 
     @Override
     public List<Flight> getAllFlights() {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM flights";
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+
+            List<Flight> flights = new LinkedList<>();
+
+            while (rs.next()) {
+                Flight flight = new Flight(rs.getInt("flight_id"),
+                        rs.getString("origin"),
+                        rs.getString("destination"),
+                        rs.getInt("price"),
+                        rs.getInt("seats")
+                );
+
+                flights.add(flight);
+            }
+            return flights;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
         return null;
     }
 }
