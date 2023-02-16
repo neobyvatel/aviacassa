@@ -2,6 +2,7 @@ package repositories;
 
 import data.interfaces.IDB;
 import entities.User;
+import entities.Flight;
 import repositories.interfaces.IUserRepository;
 
 import java.sql.*;
@@ -78,6 +79,28 @@ public class UserRepository implements IUserRepository {
         return null;
 
     }
+
+     @Override 
+    public boolean getASeat(User user, Flight flight, int seat) {
+        int seats = flight.getSeats();
+        int price = flight.getPrice();
+
+        int balance = user.getBalance();
+        ArrayList<String> flights = user.getFlights(); 
+
+        int remaining = balance - price; 
+
+        if (seats > 0 && remaining > 0) {
+            flight.setSeats(seats-1); 
+            user.setBalance(remaining);
+            flights.add(flight);
+            user.setFlights = flights;
+            return true; 
+        } else { 
+            return false; 
+        }
+    }
+
     @Override
     public User getUser(int id) {
         Connection con = null;
