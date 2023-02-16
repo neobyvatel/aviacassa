@@ -8,6 +8,7 @@ import repositories.interfaces.IUserRepository;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class UserRepository implements IUserRepository {
     private final IDB db;
@@ -86,7 +87,7 @@ public class UserRepository implements IUserRepository {
         int price = flight.getPrice();
 
         int balance = user.getBalance();
-        ArrayList<String> flights = user.getFlights(); 
+        ArrayList<Flight> flights = user.getFlights();
 
         int remaining = balance - price; 
 
@@ -94,7 +95,7 @@ public class UserRepository implements IUserRepository {
             flight.setSeats(seats-1); 
             user.setBalance(remaining);
             flights.add(flight);
-            user.setFlights = flights;
+            user.setFlights(flights);
             return true; 
         } else { 
             return false; 

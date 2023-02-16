@@ -34,7 +34,7 @@ public class UserController {
         String message = "The purchase has failed!";
         if (loggedInUser != null) {
             if (repo.getASeat(loggedInUser, flight, seat)) {
-                message = "You have successfully bought a seat!"
+                message = "You have successfully bought a seat!";
             }
         }
 

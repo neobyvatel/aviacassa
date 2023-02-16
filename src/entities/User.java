@@ -7,7 +7,7 @@ public class User {
     private String surname;
     private String email;
     private int balance;
-    ArrayList<String> flights = new ArrayList<String>();
+    ArrayList<Flight> flights = new ArrayList<Flight>();
 
     public User() {
     }
@@ -65,11 +65,11 @@ public class User {
         this.email = email;
     }
 
-    public ArrayList<String> getFlights() {
+    public ArrayList<Flight> getFlights() {
         return flights;
     }
 
-    public void setFlights(ArrayList<String> flights) {
+    public void setFlights(ArrayList<Flight> flights) {
         this.flights = flights;
     }
 
