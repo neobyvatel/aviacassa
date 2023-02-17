@@ -66,15 +66,21 @@ public class MyApplication {
         System.out.println(response);
     }
 
+    public void purchaseFlightMenu(){
+        getAllFlightsMenu();
+        System.out.println("Select flight:");
+        int option = scanner.nextInt();
+        Flight flight = flightController.getFlight(option);
+        String response = userController.getASeat(flight);
+        System.out.println(response);
+    }
+
     public void start() {
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
             System.out.println("1. Sign in");
             System.out.println("2. Sign up");
-//            System.out.println("1. Get all users");
-//            System.out.println("2. Get user by id");
-//            System.out.println("3. Create user");
             System.out.println("0. Exit");
             System.out.println();
         while (!isActive) {
@@ -109,14 +115,17 @@ public class MyApplication {
                 System.out.println("Select option:");
                 System.out.println("1. Display flights");
                 System.out.println("2. Choose flight");
+                System.out.println("3. Current balance");
                 System.out.print("Enter option (1-2): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllFlightsMenu();
-                } else if (option == 2) {
-
-                } else if (option == 3) {
-
+                }
+                else if (option == 2) {
+                    purchaseFlightMenu();
+                }
+                else if (option == 3) {
+                    System.out.println("Your current balance is " + user.getBalance());
                 } else {
                     break;
                 }

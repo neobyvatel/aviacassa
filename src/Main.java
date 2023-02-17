@@ -11,6 +11,7 @@ import repositories.interfaces.IUserRepository;
 
 public class Main {
 
+
     public static void main(String[] args) {
         IDB db = new PostgresDB();
         IUserRepository userRepo = new UserRepository(db);

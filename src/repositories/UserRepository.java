@@ -82,7 +82,7 @@ public class UserRepository implements IUserRepository {
     }
 
      @Override 
-    public boolean getASeat(User user, Flight flight, int seat) {
+    public boolean getASeat(User user, Flight flight) {
         int seats = flight.getSeats();
         int price = flight.getPrice();
 

@@ -50,19 +50,19 @@ public class FlightRepository implements IFlightRepository{
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT flight_id,origin,destination,seats,price FROM flights WHERE id=?";
+            String sql = "SELECT flight_id ,origin,destination,seats,price FROM flights WHERE flight_id=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
 
+
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                Flight flight = new Flight(rs.getInt("id"),
+                Flight flight = new Flight(rs.getInt("flight_id"),
                         rs.getString("origin"),
                         rs.getString("destination"),
                         rs.getInt("seats"),
                         rs.getInt("price"));
-
                 return flight;
             }
         } catch (SQLException throwables) {

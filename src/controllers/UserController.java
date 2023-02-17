@@ -30,10 +30,10 @@ public class UserController {
     }
 
     // should be called from MyApplication using getFlight 
-    public String getASeat(Flight flight, int seat) {
+    public String getASeat(Flight flight) {
         String message = "The purchase has failed!";
-        if (loggedInUser != null) {
-            if (repo.getASeat(loggedInUser, flight, seat)) {
+        if (loggedInUser != null  || flight == null) {
+            if (repo.getASeat(loggedInUser, flight)) {
                 message = "You have successfully bought a seat!";
             }
         }

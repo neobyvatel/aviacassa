@@ -2,7 +2,7 @@ package controllers;
 
 import entities.Flight;
 import repositories.interfaces.IFlightRepository;
-
+import repositories.FlightRepository;
 
 import java.util.List;
 
@@ -18,4 +18,9 @@ public class FlightController {
 
         return flights.toString();
     }
+    public Flight getFlight(int id){
+        Flight flight = repo.getFlight(id);
+        return flight;
+    }
+
 }
