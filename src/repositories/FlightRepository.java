@@ -21,13 +21,13 @@ public class FlightRepository implements IFlightRepository{
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO flights(origin,destination,seats,price) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO flights(origin,destination,price,seats) VALUES (?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, flight.getOrigin());
             st.setString(2, flight.getDestination());
-            st.setInt(3, flight.getSeats());
-            st.setInt(4, flight.getPrice());
+            st.setInt(3, flight.getPrice());
+            st.setInt(4, flight.getSeats());
 
             st.execute();
             return true;
@@ -50,7 +50,7 @@ public class FlightRepository implements IFlightRepository{
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT flight_id ,origin,destination,seats,price FROM flights WHERE flight_id=?";
+            String sql = "SELECT flight_id ,origin,destination,price,seats FROM flights WHERE flight_id=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
@@ -61,8 +61,8 @@ public class FlightRepository implements IFlightRepository{
                 Flight flight = new Flight(rs.getInt("flight_id"),
                         rs.getString("origin"),
                         rs.getString("destination"),
-                        rs.getInt("seats"),
-                        rs.getInt("price"));
+                        rs.getInt("price"),
+                        rs.getInt("seats"));
                 return flight;
             }
         } catch (SQLException throwables) {
@@ -78,6 +78,7 @@ public class FlightRepository implements IFlightRepository{
         }
         return null;
     }
+
 
     @Override
     public List<Flight> getAllFlights() {

@@ -75,6 +75,10 @@ public class MyApplication {
         System.out.println(response);
     }
 
+    public void addBalanceMenu(){
+        System.out.println();
+    }
+
     public void start() {
             System.out.println();
             System.out.println("Welcome to My Application");
@@ -116,7 +120,9 @@ public class MyApplication {
                 System.out.println("1. Display flights");
                 System.out.println("2. Choose flight");
                 System.out.println("3. Current balance");
-                System.out.print("Enter option (1-2): ");
+                System.out.println("4. Replenish the balance");
+                System.out.println("5. User INFO");
+                System.out.print("Enter option (1-5): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllFlightsMenu();
@@ -126,7 +132,14 @@ public class MyApplication {
                 }
                 else if (option == 3) {
                     System.out.println("Your current balance is " + user.getBalance());
-                } else {
+                }
+                else if(option == 4){
+
+                }
+                else if (option == 5) {
+                    System.out.println(user);
+                }
+                else {
                     break;
                 }
             } catch (InputMismatchException r) {

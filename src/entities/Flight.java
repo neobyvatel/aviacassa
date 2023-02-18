@@ -26,6 +26,9 @@ public class Flight {
                 setId(id);
         }
 
+        public int getId() {
+                return id;
+        }
 
         public void setId(int id) {
                 this.id = id;
@@ -74,8 +77,9 @@ public class Flight {
                         '}';
         }
 
-        public static boolean checkSeat(int seats) {
-                return (seats>0);
+        public String getOrigDest(){
+                return origin + "-" + destination + " ";
         }
+
 
 }
