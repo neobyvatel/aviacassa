@@ -19,9 +19,8 @@ public class User {
         setBalance(balance);
 
     }
-    public int addBalance(int Balance, int amountToAdd) {
-        int newBalance = balance + amountToAdd;
-        return newBalance;
+    public int addBalance(int balance, int amountToAdd) {
+        return(balance+amountToAdd);
     }
     public User(int id, String name, String surname, String email, int balance) {
         this(name, surname,email, balance);
