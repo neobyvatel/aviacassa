@@ -11,4 +11,6 @@ public interface IUserRepository {
     boolean getASeat(User user, Flight flight);
     User getUser(int id);
     List<User> getAllUsers();
+    boolean addBalance();
+
 }
