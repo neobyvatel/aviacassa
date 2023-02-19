@@ -35,6 +35,11 @@ public class MyApplication {
         System.out.println(response);
     }
 
+    public static boolean validateEmail(String email) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
+        return matcher.find();
+    }
+
     public void getUserByIdMenu() {
         System.out.println("Please enter id");
 
