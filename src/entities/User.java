@@ -1,7 +1,5 @@
 package entities;
 import java.util.ArrayList;
-import entities.Flight;
-
 
 public class User {
     private int id;
@@ -21,14 +19,7 @@ public class User {
         setBalance(balance);
 
     }
-    public void addBalance( int amountToAdd) {
-        setBalance(balance+amountToAdd);
-    }
-
-    public void getASeat(){
-
-    }
-
+    public void addBalance(int amount) { setBalance(balance + amount); }
     public User(int id, String name, String surname, String email, int balance) {
         this(name, surname,email, balance);
         setId(id);
