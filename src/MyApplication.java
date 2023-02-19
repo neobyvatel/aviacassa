@@ -5,6 +5,8 @@ import controllers.FlightController;
 import entities.Flight;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MyApplication {
     private User user;
@@ -25,6 +27,8 @@ public class MyApplication {
         System.out.flush();
     }
 
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
+            Pattern.CASE_INSENSITIVE);
     public void getAllUsersMenu() {
         String response = userController.getAllUsers();
         System.out.println(response);
