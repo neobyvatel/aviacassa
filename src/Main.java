@@ -4,8 +4,6 @@ import controllers.FlightController;
 import data.PostgresDB;
 import data.interfaces.IDB;
 import repositories.FlightRepository;
-import repositories.UserFlightRepository;
-import repositories.UserRepository;
 import repositories.interfaces.IFlightRepository;
 import repositories.interfaces.IUserRepository;
 

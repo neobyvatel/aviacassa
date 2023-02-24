@@ -1,13 +1,14 @@
 package entities;
 import java.util.ArrayList;
 
+
 public class User {
     private int id;
     private String name;
     private String surname;
     private String email;
     private int balance;
-    ArrayList<Flight> flights = new ArrayList<Flight>();
+    ArrayList<Flight> flights = new ArrayList<>();
 
     public User() {
     }
