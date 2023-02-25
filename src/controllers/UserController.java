@@ -2,16 +2,19 @@ package controllers;
 
 import entities.User;
 import entities.Flight;
+import repositories.UserFlightRepository;
 import repositories.interfaces.IUserRepository;
 
 import java.util.List;
 
 public class UserController {
     private final IUserRepository repo;
+    private final UserFlightRepository userFlightRepo;
     private User loggedInUser = null; 
 
-    public UserController(IUserRepository repo) {
+    public UserController(IUserRepository repo, UserFlightRepository userFlightRepo) {
         this.repo = repo;
+        this.userFlightRepo = userFlightRepo;
     }
 
     public String register(String name, String surname, String email, int balance) {
@@ -32,7 +35,7 @@ public class UserController {
     public String getASeat(Flight flight) {
         String message = "The purchase has failed!";
         if (loggedInUser != null  || flight == null) {
-            if (repo.getASeat(loggedInUser, flight)) {
+            if (userFlightRepo.getASeat(loggedInUser, flight)) {
                 message = "You have successfully bought a seat!";
             }
         }
