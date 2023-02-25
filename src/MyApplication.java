@@ -68,7 +68,11 @@ public class MyApplication {
         user = userController.login(email);
         String response = user == null ? "User was not found!" : "Welcome to AviaCassa, " + user.getEmail();
         System.out.println(response);
-        isActive = true;
+        if(user != null) {
+            isActive = true;
+            System.out.println("Hello " +  user.getName() + ' ' + user.getSurname());
+            System.out.println("----------------------------------------------");
+        }
     }
 
     public void getAllFlightsMenu(){
@@ -124,8 +128,7 @@ public class MyApplication {
 
         }
 
-        System.out.println("Hello " +  user.getName() + ' ' + user.getSurname());
-        System.out.println("----------------------------------------------");
+
 
         while (isActive){
             try {

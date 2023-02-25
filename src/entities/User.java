@@ -25,9 +25,6 @@ public class User {
         setBalance(balance+amountToAdd);
     }
 
-    public void getASeat(){
-
-    }
 
     public User(int id, String name, String surname, String email, int balance) {
         this(name, surname,email, balance);
