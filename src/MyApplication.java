@@ -52,7 +52,7 @@ public class MyApplication {
         String response = user == null ? "User was not found!" : "Welcome to AviaCassa, " + user.getEmail();
         System.out.println(response);
         if(user != null) {
-            isActive = true;
+
             System.out.println("Hello " +  user.getName() + ' ' + user.getSurname());
             System.out.println("----------------------------------------------");
         }
@@ -62,7 +62,6 @@ public class MyApplication {
         String response = flightController.getAllFlights();
         System.out.println(response);
     }
-
     public void purchaseFlightMenu(){
         getAllFlightsMenu();
         System.out.println("Select flight:");
@@ -94,7 +93,6 @@ public class MyApplication {
                 int option = scanner.nextInt();
                 if (option == 1) {
                     loginMenu();
-                    isActive = true;
                 } else if (option == 2) {
                     registerMenu();
                 } else {
