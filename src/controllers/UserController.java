@@ -29,7 +29,6 @@ public class UserController {
         //return (user == null ? "User was not found!" : "Welcome to AviaCassa, " + user.getEmail());
     }
 
-    // should be called from MyApplication using getFlight 
     public String getASeat(Flight flight) {
         String message = "The purchase has failed!";
         if (loggedInUser != null  || flight == null) {
@@ -40,6 +39,9 @@ public class UserController {
 
         return message;
     }
+
+
+
 
     public String getUser(int id) {
         User user = repo.getUser(id);

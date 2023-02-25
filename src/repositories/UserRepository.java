@@ -216,8 +216,37 @@ public class UserRepository implements IUserRepository {
 
     }
 
-    @Override
-    public boolean addBalance() {
+    public boolean addBalance(User user, int amount) {
+        int balance = user.getBalance();
+        int currentBalance = balance + amount;
+        int userId = user.getId();
+        user.setBalance(currentBalance);
+
+        Connection con = null;
+
+        try {
+            con = db.getConnection();
+            String UserSQL = "UPDATE users SET balance = ? WHERE user_id = ?";
+            PreparedStatement st = con.prepareStatement(UserSQL);
+
+            st.setInt(1, balance);
+            st.setInt(2, userId);
+
+            st.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
         return false;
     }
 }

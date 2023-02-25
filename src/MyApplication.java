@@ -86,7 +86,9 @@ public class MyApplication {
     }
 
     public void addBalanceMenu(){
-        System.out.println();
+        System.out.println("Enter the amount of money");
+        int amount = scanner.nextInt();
+        user.addBalance(amount);
     }
 
     public void start() {
