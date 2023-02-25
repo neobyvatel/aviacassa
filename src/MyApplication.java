@@ -22,12 +22,14 @@ public class MyApplication {
         scanner = new Scanner(System.in);
     }
 
-
     public static final Pattern PASSWORD_STRENGTH_REGEX = Pattern
             .compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[/S]{8,10}$");
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
             Pattern.CASE_INSENSITIVE);
-
+    public void getAllUsersMenu() {
+        String response = userController.getAllUsers();
+        System.out.println(response);
+    }
 
     public static boolean validateEmail(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
@@ -88,6 +90,7 @@ public class MyApplication {
         int amount = scanner.nextInt();
         user.addBalance(amount);
         String response = userController.addBalance();
+        System.out.println(response);
     }
 
     public void start() {
@@ -121,7 +124,6 @@ public class MyApplication {
             System.out.println("*************************");
 
         }
-
 
 
         while (isActive){
