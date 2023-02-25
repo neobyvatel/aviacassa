@@ -5,8 +5,6 @@ import controllers.FlightController;
 import entities.Flight;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MyApplication {
     private User user;
@@ -22,10 +20,7 @@ public class MyApplication {
         scanner = new Scanner(System.in);
     }
 
-    public void getAllUsersMenu() {
-        String response = userController.getAllUsers();
-        System.out.println(response);
-    }
+
 
 
     public void getUserByIdMenu() {
