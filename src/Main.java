@@ -22,5 +22,6 @@ public class Main {
         FlightController flightController = new FlightController(flightRepo);
         MyApplication app = new MyApplication(userController, flightController);
         app.start();
+
     }
 }
