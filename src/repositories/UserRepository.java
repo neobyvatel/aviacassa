@@ -216,11 +216,9 @@ public class UserRepository implements IUserRepository {
 
     }
 
-    public boolean addBalance(User user, int amount) {
+    public boolean addBalance(User user) {
         int balance = user.getBalance();
-        int currentBalance = balance + amount;
         int userId = user.getId();
-        user.setBalance(currentBalance);
 
         Connection con = null;
 

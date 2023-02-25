@@ -40,7 +40,15 @@ public class UserController {
         return message;
     }
 
-
+    public String addBalance(){
+        String message = "The operation is failed!";
+        if (loggedInUser != null ) {
+            if (repo.addBalance(loggedInUser)) {
+                message = "The balance has replenished!";
+            }
+        }
+        return message;
+    }
 
 
     public String getUser(int id) {

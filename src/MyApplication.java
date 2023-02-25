@@ -89,6 +89,7 @@ public class MyApplication {
         System.out.println("Enter the amount of money");
         int amount = scanner.nextInt();
         user.addBalance(amount);
+        String response = userController.addBalance();
     }
 
     public void start() {
@@ -146,7 +147,7 @@ public class MyApplication {
                     System.out.println("Your current balance is " + user.getBalance());
                 }
                 else if(option == 4){
-
+                    addBalanceMenu();
                 }
                 else if (option == 5) {
                     System.out.println(user);
