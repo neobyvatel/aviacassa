@@ -22,10 +22,7 @@ public class MyApplication {
         scanner = new Scanner(System.in);
     }
 
-    public static void clearConsole() {
-        System.out.println("\\033[H\\033[2J");
-        System.out.flush();
-    }
+
     public static final Pattern PASSWORD_STRENGTH_REGEX = Pattern
             .compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[/S]{8,10}$");
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
